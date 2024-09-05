@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texto Animado com Redemoinho</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden; /* Para evitar que as letras que saem do contêiner apareçam na tela */
+    }
+
+    .container {
+      font-size: 4em;
+      color: #fff;
+      position: relative;
+    }
+
+    .letter {
+      display: inline-block;
+      position: relative;
+      transform-origin: center;
+      animation: disintegration 3s ease-in-out forwards;
+      opacity: 1;
+    }
+
+    @keyframes disintegration {
+      0% {
+        transform: translate(0, 0) rotate(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(0, -50px) rotate(20deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(200px, -200px) rotate(90deg);
+        opacity: 0;
+      }
+    }
+
+    /* Adicionar variação de tempo para cada letra */
+    .letter:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .letter:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    .letter:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    .letter:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+    .letter:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+    .letter:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+    .letter:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+    .letter:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+    .letter:nth-child(9) {
+      animation-delay: 0.8s;
+    }
+    .letter:nth-child(10) {
+      animation-delay: 0.9s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="text-container">
+    <span class="letter">M</span>
+    <span class="letter">i</span>
+    <span class="letter">d</span>
+    <span class="letter">j</span>
+    <span class="letter">o</span>
+    <span class="letter">u</span>
+    <span class="letter">r</span>
+    <span class="letter">n</span>
+    <span class="letter">e</span>
+    <span class="letter">y</span>
+  </div>
+
+  <script>
+    const container = document.getElementById('text-container');
+    container.addEventListener('mouseover', () => {
+      const letters = document.querySelectorAll('.letter');
+      letters.forEach(letter => {
+        letter.style.animationPlayState = 'running';
+      });
+    });
+
+    container.addEventListener('mouseout', () => {
+      const letters = document.querySelectorAll('.letter');
+      letters.forEach(letter => {
+        letter.style.animationPlayState = 'paused';
+      });
+    });
+  </script>
+</body>
+</html>
